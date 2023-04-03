@@ -1,0 +1,22 @@
+CUDA_VISIBLE_DEVICES=9 python3 train_3d.py \
+    --dataset_mode london_pc \
+    --dataroot datasets/london_half_pc \
+    --phase train_midas_h5,train_sate_h5,train_sate_h6 \
+    --checkpoints_dir checkpoints/up17perceptual \
+    --batch_size 2 \
+    --num_frames 15 \
+    --input_nc 3 \
+    --nz 16 \
+    --ngf 64 \
+    --netG sparseconvnetmultinoise \
+    --scn_ratio 32 \
+    --netE resnet_256_multi \
+    --local_encoder \
+    --final_upsample 17 \
+    --display_env up17up11perceptual \
+    --display_freq 1 \
+    --epoch latest \
+    --lr 0.0001 \
+    --lambda_L1 40 \
+    --debug \
+    --continue_train;
